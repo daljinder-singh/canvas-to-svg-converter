@@ -1,6 +1,6 @@
 {
   "name": "image-to-svg",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Convert PNG, JPG, JPEG images to SVG in the browser",
   "type": "module",
   "main": "./dist/index.js",
