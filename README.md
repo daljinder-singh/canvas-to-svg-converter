@@ -1,8 +1,12 @@
-# canvas-to-svg-converter
+# image-to-svg
 
-![npm version](https://img.shields.io/npm/v/canvas-to-svg-converter)
-![license](https://img.shields.io/npm/l/canvas-to-svg-converter)
-![downloads](https://img.shields.io/npm/dm/canvas-to-svg-converter)
+
+![npm version](https://img.shields.io/npm/v/image-to-svg
+)
+![license](https://img.shields.io/npm/l/image-to-svg
+)
+![downloads](https://img.shields.io/npm/dm/image-to-svg
+)
 
 Convert PNG, JPG, and JPEG images to SVG directly in the browser using ImageTracer.
 
@@ -23,7 +27,8 @@ Convert PNG, JPG, and JPEG images to SVG directly in the browser using ImageTrac
 ## 📦 Installation
 
 ```bash
-npm install canvas-to-svg-converter
+npm install image-to-svg
+
 ```
 
 ---
@@ -31,11 +36,11 @@ npm install canvas-to-svg-converter
 ## 🚀 Basic Usage
 
 ```ts
-import { convertImageToSvg } from "canvas-to-svg-converter";
+import { imageToSvg } from "image-to-svg";
 
 const imageUrl = "https://example.com/image.png";
 
-const svgString = await convertImageToSvg(imageUrl);
+const svgString = await imageToSvg(imageUrl);
 
 console.log(svgString);
 ```
@@ -45,11 +50,11 @@ console.log(svgString);
 ## 🖼️ Using File Input (React Example)
 
 ```ts
-import { convertImageToSvg } from "canvas-to-svg-converter";
+import { imageToSvg } from "image-to-svg";
 
 const handleFile = async (file: File) => {
   const url = URL.createObjectURL(file);
-  const svg = await convertImageToSvg(url);
+  const svg = await imageToSvg(url);
   console.log(svg);
 };
 ```
@@ -61,7 +66,7 @@ const handleFile = async (file: File) => {
 You can customize the SVG tracing behavior:
 
 ```ts
-convertImageToSvg(imageUrl, {
+imageToSvg(imageUrl, {
   numberofcolors: 128,
   colorquantcycles: 1,
   ltres: 0.01,

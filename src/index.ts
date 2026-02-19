@@ -16,13 +16,13 @@ interface ConvertOptions {
 }
 
 
-export async function convertPngToSvg(
+export async function imageToSvg(
   imageSrc: string,
   options: ConvertOptions = {}
 ): Promise<string> {
   
    if (typeof document === "undefined") {
-    throw new Error("convertImageToSvg works only in browser environment.");
+    throw new Error("imageToSvg works only in browser environment.");
   }
 
   const img = await loadImage(imageSrc);
