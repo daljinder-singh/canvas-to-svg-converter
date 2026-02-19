@@ -1,0 +1,51 @@
+{
+  "name": "canvas-to-svg-converter",
+  "version": "1.0.1",
+  "description": "Convert PNG, JPG, JPEG images to SVG in the browser",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "png",
+    "jpg",
+    "jpeg",
+    "svg",
+    "converter",
+    "browser",
+    "image",
+    "imagetracer"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "imagetracerjs": "^1.2.6"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daljinder-singh/canvas-to-svg-converter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/daljinder-singh/canvas-to-svg-converter/issues"
+  },
+  "homepage": "https://github.com/daljinder-singh/canvas-to-svg-converter#readme"
+}
