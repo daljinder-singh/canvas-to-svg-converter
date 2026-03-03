@@ -20,7 +20,10 @@ Convert PNG, JPG, and JPEG images to SVG directly in the browser using ImageTrac
 - Fully browser-based (no Node canvas dependency)
 - TypeScript support
 - Custom tracing options
-- Lightweight and simple API
+- Web Worker support (non-blocking UI)
+- AbortController support (cancel conversion)
+- Automatic large image scaling
+- Lightweight and simple Promise-based API
 
 ---
 
@@ -78,12 +81,15 @@ imageToSvg(imageUrl, {
   linefilter: false,
   scale: 1,
   roundcoords: 1,
-  dither: false
+  dither: false,
+  maxDimension: 1200,
+  useWorker: true
 });
 ```
 
 ### Available Options
 
+ImageTracer Options
 - `numberofcolors`
 - `colorquantcycles`
 - `ltres`
@@ -96,6 +102,42 @@ imageToSvg(imageUrl, {
 - `scale`
 - `roundcoords`
 - `dither`
+
+Wrapper Options
+
+- maxDimension (default: 1200)
+  Automatically scales large images before tracing to prevent memory spikes.
+
+- useWorker (default: true)
+  Runs conversion inside a Web Worker when supported.
+
+- signal
+  Allows cancellation via AbortController.
+
+---
+
+## 🛑 Cancel Conversion
+You can cancel processing:
+
+```ts
+const controller = new AbortController();
+
+imageToSvg(imageUrl, {
+  signal: controller.signal
+});
+
+// Cancel if needed
+controller.abort();
+```
+
+---
+
+## 🚀 Performance
+
+- Runs in a Web Worker by default (when supported)
+- Prevents UI freezing during large conversions
+- Transfers image buffers efficiently to avoid memory duplication
+- Automatically scales large images
 
 ---
 
